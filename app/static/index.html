@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LearnTogether</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="wordmark" href="/">LearnTogether</a>
+      <div class="account">
+        <span id="user-name" class="account-name"></span>
+        <button type="button" id="logout" class="link-button">Sign out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <form id="topic-form" class="topic-form" novalidate>
+      <h1><label for="topic-input">What do you want to learn?</label></h1>
+      <p class="lede">Suggest a topic, or add your +1 to something a teammate wants to learn.</p>
+      <div class="field-row">
+        <input id="topic-input" name="name" type="text" maxlength="100" autocomplete="off" spellcheck="true"
+               placeholder="e.g. Writing SQL window functions" aria-describedby="topic-status topic-hint">
+        <button type="submit" class="button button-primary">Add topic</button>
+      </div>
+      <div class="form-meta">
+        <p id="topic-status" class="status" role="status" aria-live="polite"></p>
+        <p id="topic-hint" class="hint"><span id="char-count">0</span>/100</p>
+      </div>
+    </form>
+
+    <section class="topics" aria-labelledby="topics-heading">
+      <div class="section-head">
+        <h2 id="topics-heading">Topics</h2>
+        <span id="topic-total" class="muted"></span>
+      </div>
+      <p id="list-status" class="status" role="status" aria-live="polite">Loading topics…</p>
+      <ol id="topic-list" class="topic-list" hidden></ol>
+      <div id="empty-state" class="empty" hidden>
+        <p class="empty-title">No topics yet</p>
+        <p class="muted">Add the first thing you'd like to learn above. Others can +1 it from here.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
